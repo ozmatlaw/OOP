@@ -1,0 +1,47 @@
+eisenberge
+oz.matlaw
+
+
+Uml Differences - When we started this project, we didn't think to add multiple types of drinks, so the entire
+    drinks package was added at a later time. Similarly, we decided to add a dirt class so that the falling
+    leaves knew to stop on the ground only and not on the tree trunk. Moreover, we added a unique leaf class to
+    allow for the complex motion of the leaves, and we allowed the drink classes to access the avatar and terrain
+    in order to implement their buffs.
+
+Infinite world – In order to generate an infinite world, we used the avatars location.
+	We calculated a buffer zone that always generates a buffer of extra terrain,
+	so, the avatar won’t reach the end of the world. This was implemented by using
+	a min and max range. Furthermore, we deleted any game object (leaves, dirt, trees, power ups)
+	that left the buffer zone relieving the system from unnecessary stress.
+
+Tree Design - the trees contain foliage, leaf, trunk and Drink factory classes
+	that allow them to delegate the responsibilities more efficiently
+	and implement the single purpose idea.In order to make the trees appear more realistic,
+	we used three layers of foliage that are randomly placed with different colors.
+
+Design – we based our design ideas on future growth due to all of the amazing potential
+	the game shows, its only a matter of time till some major gaming company picks this up.
+	In order to make there lives easier when the game gets picked up for a huge expansion
+	we encapsulated the code as much as possible and built a strict dependency pattern.
+	To further optimize the runtime, we had the terrain summon a layer of long blocks instead
+	of many layers of countless unnecessary game objects that would have made the runtime slower.
+
+Bonus –
+	1.	Leaves change color when they fall, giving a more realistic interpretation of nature.
+	2.	Energy Drinks – energy drinks fall from the trees based on a drop rate parameter.
+	Providing the avatar with different power ups that modify the games environment and
+	Behavior, all in a stackable manor for a 5 second duration.
+		a.	Seven Up – increases the players movement speed.
+		b.	Red Bull - “Red Bull Gives You Wings” as advertised by the company, we made that happen!!
+			When the avatar drinks a red bull, he gets infinite flight time.
+		c.	Jaeger Bomb – the player gets a bit more drunk every time he takes a shot
+			causing his perception of his surroundings to go crazy
+			( most relevant when stacked as in real life).
+		d.	FizzyBubblech – Don’t mess with the Zohan taught us that it gives you powers
+		so we delivered!! Drinking a FizzyBubblech raises the power up drop rate allowing
+		for even more fun.
+	In order to allow future expansion, we used the factory design pattern.
+	3.	Non-linear terrain – we used a pseudo random terrain module that we created in order
+	to provide better experience of our magnificent and breathtaking landscape.
+	4.	Energy counter graphic – displays the current energy level so you know when to let
+	your avatar rest and when he’s ready to take to the skies.
